@@ -25,3 +25,6 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 ## **Team Members**
 * Katarina Petrovic, frontend
 * Sarah Kaczynski, backend
+
+
+...just making sure I can edit this!
