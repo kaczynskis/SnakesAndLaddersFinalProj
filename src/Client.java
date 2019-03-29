@@ -6,15 +6,16 @@ import java.io.*;
 public class Client {
 	//connect to server
 	public static void main(String[] args) {
-		System.out.println(DiceRoller.roll());
-		/*while(true) {
+		//System.out.println(DiceRoller.roll());
+		//while(true) {
 			try {
 				Socket s = new Socket("localhost", 1234);
-				System.out.println(DiceRoller.roll());
+				DataOutputStream out = new DataOutputStream(s.getOutputStream());
+				System.out.println("connected");
 			}
 			catch(IOException e) {
 				e.printStackTrace();
 			}
-		}*/
+		//}
 	}
 }

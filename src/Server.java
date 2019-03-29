@@ -2,8 +2,21 @@ import java.net.*;
 import java.io.*;
 
 public class Server {
+	
+	public static void main(String args[]) {
+		//while(true) {
+			try {
+				ServerSocket serverS = new ServerSocket(1234);
+				Socket s = serverS.accept();
+				DataInputStream in = new DataInputStream(s.getInputStream());
+			}
+			catch(IOException e) {
+				e.printStackTrace();
+			}
+		//}
+	}
 
-	private Socket socket = null;
+	/*private Socket socket = null;
 	private ServerSocket s = null;
 	private DataInputStream stream = null;
 	
@@ -32,6 +45,6 @@ public class Server {
 		close();
 		}
 		catch (IOException IOE) {
-		}
+		}*/
 
 }
