@@ -2,18 +2,21 @@ import java.net.*;
 import java.io.*;
 
 public class Server {
+	private static int playerNum;
 	
 	public static void main(String args[]) {
-		//while(true) {
-			try {
-				ServerSocket serverS = new ServerSocket(1234);
-				Socket s = serverS.accept();
-				DataInputStream in = new DataInputStream(s.getInputStream());
-			}
-			catch(IOException e) {
-				e.printStackTrace();
-			}
-		//}
+		try {
+			ServerSocket ss = new ServerSocket(1234);
+			Socket s = ss.accept();
+			DataInputStream in = new DataInputStream(s.getInputStream());
+			
+			GameBoard game = new GameBoard();
+			
+			ss.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*private Socket socket = null;
