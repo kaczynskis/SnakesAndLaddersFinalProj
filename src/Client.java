@@ -9,11 +9,18 @@ public class Client {
 		try {
 			Socket s = new Socket("localhost", 1234);
 			DataOutputStream out = new DataOutputStream(s.getOutputStream());
-			System.out.println("connected");
+			Scanner in = new Scanner(System.in);
+			System.out.print("roll die? (y/n)");
+			String response = in.nextLine();
+			if(response.equalsIgnoreCase("y")) {
+				out.writeUTF(response);
+			}
+			else {
+			}
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(DiceRoller.roll());
+		//System.out.println(DiceRoller.roll());
 	}
 }

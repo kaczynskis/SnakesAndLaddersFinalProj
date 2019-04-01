@@ -9,6 +9,7 @@ public class Server {
 			ServerSocket ss = new ServerSocket(1234);
 			Socket s = ss.accept();
 			DataInputStream in = new DataInputStream(s.getInputStream());
+			System.out.println(in.readUTF());
 			
 			GameBoard game = new GameBoard();
 			
