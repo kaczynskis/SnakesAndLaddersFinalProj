@@ -16,7 +16,7 @@ public class Server {
 		try {
 			while (!Thread.currentThread().isInterrupted()) {
 				Socket clientSocket = serverSocket.accept();
-				threads.submit(new ClientHandler(clientSocket));
+				new Thread().start();
 			}
 		}
 		finally {
