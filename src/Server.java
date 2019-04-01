@@ -19,6 +19,12 @@ public class Server {
 			e.printStackTrace();
 		}
 	}
+	public void getCurrentLocation() {
+		
+	}
+	public void move(int roll) {
+		
+	}
 
 	/*private Socket socket = null;
 	private ServerSocket s = null;
