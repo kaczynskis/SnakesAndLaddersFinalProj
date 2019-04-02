@@ -9,3 +9,9 @@ Week 3:
 -Last week, we were finally able to see our project in Eclipse.
 -This week, we created classes for the client and server and started to write the code for it.
 -The greatest challenge that we are encountering is translating the previously provided Python code for the client and server class to Java. 
+
+Week 4:
+
+-Last week, we made the classes for the client and server.
+-During this week, we set up the BoardPair, Gameboard, and Gridbox classes and are nearly finished with them.
+-A challenge that we faced this week was conceptualizing the gameplay and figuring out how all of the classes will work together. 

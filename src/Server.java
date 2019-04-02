@@ -1,8 +1,40 @@
 import java.net.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.io.*;
 
 public class Server {
 	private static int playerNum;
+	
+	private ServerSocket serverSocket;
+	
+	public Server() throws IOException {
+		serverSocket = new ServerSocket(1234);
+	}
+	
+	public void getClients() throws IOException {
+		ExecutorService threads = Executors.newCachedThreadPool();
+		try {
+			while (!Thread.currentThread().isInterrupted()) {
+				Socket clientSocket = serverSocket.accept();
+				new Thread().start();
+			}
+		}
+		finally {
+			threads.shutdown();
+		}
+	}
+	public void stop() throws IOException {
+		serverSocket.close();
+	}
+	private static class ClientHandler extends Client {
+		private final Socket clientSocket;
+		public ClientHandler(Socket clientSocket) {
+			this.clientSocket = clientSocket;
+		}
+		public void run() {
+			}
+		}
 	
 	public static void main(String args[]) {
 		try {
@@ -24,37 +56,15 @@ public class Server {
 	}
 	public void move(int roll) {
 		
-	}
-
-	/*private Socket socket = null;
-	private ServerSocket s = null;
-	private DataInputStream stream = null;
-	
-	public GameServer (int 1234) {
-		try {
-			System.out.println("");
-			s = new ServerSocket(1234);
-			System.out.println("" + s);
-			System.out.println("");
-			socket = s.accept();
-			System.out.println("" + socket);
-			open();
-			
-			boolean finish = false;
-			
-			while (!finish) {
-				try {
-					String box = stream.readUTF();
-					System.out.print(box); // box = box on grid
-					finish = box.equals("");
-				}
-				catch (IOException IOE) {
-					finish=true;
-				}
+		//while(true) {
+			try {
+				ServerSocket serverS = new ServerSocket(1234);
+				Socket s = serverS.accept();
+				DataInputStream in = new DataInputStream(s.getInputStream());
 			}
-		close();
-		}
-		catch (IOException IOE) {
-		}*/
+			catch(IOException e) {
+				e.printStackTrace();
+			}
+	}
 
 }
