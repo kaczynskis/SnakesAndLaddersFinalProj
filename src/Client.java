@@ -4,6 +4,7 @@ import java.net.Socket;
 import java.io.*;
 
 public class Client {
+	private int currentLocation;
 	//connect to server
 	public static void main(String[] args) {
 		try {
