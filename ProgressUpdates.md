@@ -15,3 +15,9 @@ Week 4:
 -Last week, we made the classes for the client and server.
 -During this week, we set up the BoardPair, Gameboard, and Gridbox classes and are nearly finished with them.
 -A challenge that we faced this week was conceptualizing the gameplay and figuring out how all of the classes will work together. 
+
+Week 5:
+
+-Last week, we made the BoardPair, Gameboard, and Gridbox classes.
+-This week, we finished the Gameboard, BoardPair, DiceRoller, and Server class. We also began to work on the multi-threading that is required for our game to work. 
+-The challenge we encountered this week was trying to understand how multi-threading works, as we both do not have any real experience implementing it in the past.
