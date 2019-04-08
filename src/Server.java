@@ -11,6 +11,7 @@ public class Server {
 		serverSocket = new ServerSocket(1234);
 	}
 	
+	// multi-thread
 	public void getClients() throws IOException {
 		ExecutorService threads = Executors.newCachedThreadPool();
 		try {
