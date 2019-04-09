@@ -2,6 +2,9 @@ import java.net.*;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import javafx.application.Application;
+
 import java.io.*;
 
 public class Server {
@@ -79,7 +82,6 @@ public class Server {
 	}
 	public void move(int roll) {
 		
-		//while(true) {
 			try {
 				ServerSocket serverS = new ServerSocket(1234);
 				Socket s = serverS.accept();
