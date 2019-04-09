@@ -1,4 +1,6 @@
 import java.net.*;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -44,6 +46,8 @@ public class Server {
 	static Vector<Client> arr = new Vector<>();
 	static int i = 0;
 	
+	Queue<Player> players = new LinkedList<Player>();
+	
 	public static void main(String args[]) throws IOException {
 		
 		ServerSocket ss = new ServerSocket(1234);
@@ -63,7 +67,7 @@ public class Server {
 			t.start();
 			i++;
 		}
-		/*try {
+		try {
 			ServerSocket ss = new ServerSocket(1234);
 			Socket s = ss.accept();
 			DataInputStream in = new DataInputStream(s.getInputStream());
@@ -75,7 +79,7 @@ public class Server {
 		}
 		catch(IOException e) {
 			e.printStackTrace();
-		}*/
+		
 	}
 	public void getCurrentLocation() {
 		

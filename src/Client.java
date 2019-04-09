@@ -8,11 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
 public class Client extends Application {
-=======
-public class Client {
->>>>>>> branch 'master' of https://github.com/kaczynskis/SnakesAndLaddersFinalProj.git
+
+	public class Client {
+r
 	private int currentLocation;
 	//connect to server
 	public static void main(String[] args) {
@@ -24,7 +23,7 @@ public class Client {
 			String response = in.nextLine();
 			if(response.equalsIgnoreCase("y")) {
 				out.writeUTF(response);
-			}
+			}// continue on for 
 			else {
 			}
 		}
@@ -33,5 +32,4 @@ public class Client {
 		}
 	}
 		
-}
-
+}}
