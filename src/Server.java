@@ -58,12 +58,13 @@ public class Server {
 	static ArrayList<ClientThread> players = new ArrayList<ClientThread>();
 	
 	public static void main(String args[]) throws IOException, NullPointerException{
-		while (true/*players.size() < 3*/) {
+		while (true) {
 			System.out.println("waiting for players...");
 			Socket s = ss.accept();
 			players.add(new ClientThread(s));
 			dis = new DataInputStream(s.getInputStream());
 			dos = new DataOutputStream(s.getOutputStream());
+			String input = dis.readUTF();
 			while(p1Loc != 100 && p2Loc != 100 && p3Loc != 100) {
 				players.get(0).move(dos);
 			}
