@@ -9,6 +9,7 @@ public class ClientThread extends Thread{
 	private static int currentLocation;
 	private static DataOutputStream dos;
 	private static DataInputStream dis;
+	private static Socket socket;
 	
 	ClientThread(Socket socket) {
 		this.socket = socket;
@@ -18,7 +19,7 @@ public class ClientThread extends Thread{
 	@Override
 	public void run() {
 		try {
-			//dos.writeUTF("running");
+			dos.writeUTF("running");
 		}
 		catch(IOException e) {
 			e.printStackTrace();

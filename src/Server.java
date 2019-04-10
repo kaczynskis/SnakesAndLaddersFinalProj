@@ -14,6 +14,7 @@ public class Server {
 	static int p1Loc, p2Loc, p3Loc;
 	public static DiceRoller die;
 	public static ServerSocket ss;
+	public static Socket s;
 	//public static Socket s;
 	GameBoard game = new GameBoard();
 	static DataInputStream dis;
@@ -23,15 +24,19 @@ public class Server {
 	static ArrayList<ClientThread> players = new ArrayList<ClientThread>();
 	
 	public static void main(String args[]) throws IOException, NullPointerException{
-		while (true) {
+		ss = new ServerSocket(1234);
+		while (players.size() < 3) {
 			System.out.println("waiting for players...");
-			Socket s = ss.accept();
+			s = ss.accept();
 			players.add(new ClientThread(s));
-			dis = new DataInputStream(s.getInputStream());
-			dos = new DataOutputStream(s.getOutputStream());
-			String input = dis.readUTF();
-			while(p1Loc != 100 && p2Loc != 100 && p3Loc != 100) {
-				players.get(0).move(dos);
+			//String input = dis.readUTF();
+		}
+		dis = new DataInputStream(s.getInputStream());
+		dos = new DataOutputStream(s.getOutputStream());
+		while(p1Loc != 100 && p2Loc != 100 && p3Loc != 100) {
+			for(int i = 0; i < 3; i++) {
+				players.get(i).move(dos);
+				//run updateLocation method
 			}
 		}
 	}
