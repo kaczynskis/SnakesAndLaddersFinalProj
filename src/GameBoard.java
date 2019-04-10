@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class GameBoard {
-	private GridBox[] boxes = new GridBox[100];
+	private GridBox[] boxes = new GridBox[100];;
 	GameBoard() {
 		for(int i = 1; i <= 100; i++) {
 			boxes[i] = new GridBox(i);

@@ -15,13 +15,17 @@ public class Client {
 		try {
 			Socket s = new Socket("localhost", 1234);
 			DataOutputStream out = new DataOutputStream(s.getOutputStream());
-			Scanner in = new Scanner(System.in);
-			System.out.print("roll die? (y/n)");
-			String response = in.nextLine();
-			if(response.equalsIgnoreCase("y")) {
-				out.writeUTF(response);
+			DataInputStream in = new DataInputStream(s.getInputStream());
+			Scanner scanIn = new Scanner(System.in);
+			System.out.print("press 'r' to roll die");
+			String response = scanIn.nextLine();
+			if(response.equals("r")) {
+				int roll = DiceRoller.roll();
+				String rollString = Integer.toString(roll);
+				out.writeUTF(rollString);
 			}
 			else {
+				System.out.print("press 'r' to roll die");
 			}
 		}
 		catch(IOException e) {
