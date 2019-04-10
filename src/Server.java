@@ -1,4 +1,8 @@
 import java.net.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -7,7 +11,14 @@ import javafx.application.Application;
 import java.io.*;
 
 public class Server {
-	private static int playerNum;
+	static int p1Loc, p2Loc, p3Loc;
+	public static DiceRoller die;
+	public static ServerSocket ss;
+	//public static Socket s;
+	GameBoard game = new GameBoard();
+	static DataInputStream dis;
+	static DataOutputStream dos;
+	/*private static int playerNum;
 	
 	private ServerSocket serverSocket;
 	
@@ -15,6 +26,7 @@ public class Server {
 		serverSocket = new ServerSocket(1234);
 	}
 	
+	// multi-thread
 	public void getClients() throws IOException {
 		ExecutorService threads = Executors.newCachedThreadPool();
 		try {
@@ -37,36 +49,37 @@ public class Server {
 		}
 		public void run() {
 			}
-		}
+	*/	
 	
-	public static void main(String args[]) {
-		try {
-			ServerSocket ss = new ServerSocket(1234);
+	//static Vector<Client> arr = new Vector<>();
+	static int i = 0;
+	
+	//Queue<ClientThread> players = new LinkedList<ClientThread>();
+	static ArrayList<ClientThread> players = new ArrayList<ClientThread>();
+	
+	public static void main(String args[]) throws IOException, NullPointerException{
+		while (true/*players.size() < 3*/) {
+			System.out.println("waiting for players...");
 			Socket s = ss.accept();
-			DataInputStream in = new DataInputStream(s.getInputStream());
-			System.out.println(in.readUTF());
+			players.add(new ClientThread(s));
+			dis = new DataInputStream(s.getInputStream());
+			dos = new DataOutputStream(s.getOutputStream());
+			while(p1Loc != 100 && p2Loc != 100 && p3Loc != 100) {
+				players.get(0).move(dos);
+			}
+			/*Client match = new Client(s, "player " + i, dis, dos);
+			Thread t = new ClientThread(match.getSocket());
+			System.out.println("New player added: " + s);
 			
-			GameBoard game = new GameBoard();
-			
-			ss.close();
+			arr.add(match);
+			t.start();*/
+			//i++;
 		}
-		catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void getCurrentLocation() {
 		
 	}
-	public void move(int roll) {
-		
-			try {
-				ServerSocket serverS = new ServerSocket(1234);
-				Socket s = serverS.accept();
-				DataInputStream in = new DataInputStream(s.getInputStream());
-			}
-			catch(IOException e) {
-				e.printStackTrace();
-			}
-	}
+//	public void getCurrentLocation() {
+//		
+//	}
+	
 
 }

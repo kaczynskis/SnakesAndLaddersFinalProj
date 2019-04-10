@@ -4,8 +4,12 @@
  */
 public class GridBox {
 	private int boxNum;
+	public boolean hasP1, hasP2, hasP3;
 	GridBox(int boxNum) {
 		this.boxNum = boxNum;
+		hasP1 = false;
+		hasP2 = false;
+		hasP3 = false;
 	}
 	public int getBoxNum() {
 		return boxNum;

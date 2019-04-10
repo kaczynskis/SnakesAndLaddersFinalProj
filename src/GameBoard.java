@@ -26,5 +26,8 @@ public class GameBoard {
 		pairs.add(new BoardPair("snake", boxes[73], boxes[93]));
 		pairs.add(new BoardPair("snake", boxes[75], boxes[95]));
 		pairs.add(new BoardPair("snake", boxes[78], boxes[98]));
+		boxes[0].hasP1 = true;
+		boxes[0].hasP2 = true;
+		boxes[0].hasP3 = true;
 	}
 }
