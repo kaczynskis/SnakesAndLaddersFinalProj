@@ -25,7 +25,7 @@ public class ChatServer {
 	// All client names, so we can check for duplicates upon registration.
 	private static Set<String> names = new HashSet<>();
 	//create a new GameBoard
-	//private static GameBoard game = new GameBoard();
+	private static GameBoard game = new GameBoard();
 	// The set of all the print writers for all the clients, used for broadcast.
 	private static Set<PrintWriter> writers = new HashSet<>();
 
@@ -38,6 +38,21 @@ public class ChatServer {
 			}
 		}
 	}
+	public int updateLocation(int currentLocation, int numRolled) {
+		int newLocation = currentLocation + numRolled;
+		for(BoardPair bp:game.pairs) {
+			int boxNumBottom = bp.getBottom().getBoxNum();
+			int boxNumTop = bp.getTop().getBoxNum();
+			if(boxNumBottom == newLocation || boxNumTop == newLocation) {
+				newLocation = bp.move();
+			}
+		}
+		return newLocation;
+	}
+	
+//	public static void printLocations() {
+//		System.out.printf("P1: %s	P2: %s	P3: %s\n", locations[0], locations[1], locations[2]);
+//	}
 
 	/**
 	 * The client handler task.

@@ -67,6 +67,8 @@ public class ChatClient {
         client.start();
     }
     
+    /////////////////////////////////////////// (just dividing between classes for clarity)
+    
     class SendingHandler implements Runnable {
         Scanner consoleInput;
     	PrintWriter out;

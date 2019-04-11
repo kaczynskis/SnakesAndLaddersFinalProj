@@ -2,9 +2,9 @@ import java.util.*;
 
 public class GameBoard {
 	public List<BoardPair> pairs;
-	private GridBox[] boxes = new GridBox[100];
+	private GridBox[] boxes = new GridBox[101];
 	GameBoard() {
-		for(int i = 1; i <= 100; i++) {
+		for(int i = 1; i < 101; i++) {
 			boxes[i] = new GridBox(i);
 		}
 		pairs = new ArrayList<BoardPair>();
@@ -27,8 +27,8 @@ public class GameBoard {
 		pairs.add(new BoardPair("snake", boxes[73], boxes[93]));
 		pairs.add(new BoardPair("snake", boxes[75], boxes[95]));
 		pairs.add(new BoardPair("snake", boxes[78], boxes[98]));
-		boxes[0].hasP1 = true;
-		boxes[0].hasP2 = true;
-		boxes[0].hasP3 = true;
+		boxes[1].hasP1 = true;
+		boxes[1].hasP2 = true;
+		boxes[1].hasP3 = true;
 	}
 }
