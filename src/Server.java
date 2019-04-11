@@ -11,40 +11,49 @@ import javafx.application.Application;
 import java.io.*;
 
 public class Server {
-	static int p1Loc, p2Loc, p3Loc;
 	public static DiceRoller die;
 	public static ServerSocket ss;
 	public static Socket s;
-	//public static Socket s;
 	GameBoard game = new GameBoard();
 	static DataInputStream dis;
 	static DataOutputStream dos;
-	
-	//Queue<ClientThread> players = new LinkedList<ClientThread>();
-	static ArrayList<ClientThread> players = new ArrayList<ClientThread>();
+	static int[] locations = new int[3];
 	
 	public static void main(String args[]) throws IOException, NullPointerException{
+		ArrayList<ClientThread> clients = new ArrayList<ClientThread>();
 		ss = new ServerSocket(1234);
-		while (players.size() < 3) {
+		int i = 1;
+		while(clients.size() < 3) {
 			System.out.println("waiting for players...");
 			s = ss.accept();
-			players.add(new ClientThread(s));
-			//String input = dis.readUTF();
+			clients.add(new ClientThread("localhost"));
+			System.out.println("Player " + i + " connected.");
+			i++;
 		}
 		dis = new DataInputStream(s.getInputStream());
 		dos = new DataOutputStream(s.getOutputStream());
-		while(p1Loc != 100 && p2Loc != 100 && p3Loc != 100) {
-			for(int i = 0; i < 3; i++) {
-				players.get(i).move(dos);
+		while(locations[0] != 100 && locations[1] != 100 && locations[2] != 100) {
+			for(int j = 0; j < 3; j++) {
+				clients.get(j).move(dos);
 				//run updateLocation method
 			}
+			printLocations();
 		}
 	}
-	public int updateLocation(int numRolled, int currentLocation) {
+	public int updateLocation(int currentLocation, int numRolled) {
 		int newLocation = currentLocation + numRolled;
-		//check to see if gridbox has either snake or ladder, update newLocation accordingly
+		for(BoardPair bp:game.pairs) {
+			int boxNumBottom = bp.getBottom().getBoxNum();
+			int boxNumTop = bp.getTop().getBoxNum();
+			if(boxNumBottom == newLocation || boxNumTop == newLocation) {
+				newLocation = bp.move();
+			}
+		}
 		return newLocation;
 	}
 	
+	public static void printLocations() {
+		System.out.printf("P1: %s	P2: %s	P3: %s\n", locations[0], locations[1], locations[2]);
+	}
 
 }

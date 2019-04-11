@@ -12,6 +12,12 @@ public class BoardPair {
 		this.bottom = bottom;
 		this.top = top;
 	}
+	public GridBox getBottom() {
+		return bottom;
+	}
+	public GridBox getTop() {
+		return top;
+	}
 	public int move() {
 		if(type.equalsIgnoreCase("ladder")) {
 			newLocation = top.getBoxNum();
