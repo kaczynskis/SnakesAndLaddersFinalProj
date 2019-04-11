@@ -103,7 +103,7 @@ public class ChatClient {
                 if (line.startsWith("MESSAGE") && !line.contains(name + ":")) {
                     System.out.println(line.substring(8));
                 }
-                else if (line.startsWith("ROLL_DICE")) {
+                if (line.startsWith("ROLL_DICE")) {
     				
                 }
             }
