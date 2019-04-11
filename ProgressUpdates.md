@@ -9,3 +9,19 @@ Week 3:
 -Last week, we were finally able to see our project in Eclipse.
 -This week, we created classes for the client and server and started to write the code for it.
 -The greatest challenge that we are encountering is translating the previously provided Python code for the client and server class to Java. 
+
+Week 4:
+
+-Last week, we made the classes for the client and server.
+-During this week, we set up the BoardPair, Gameboard, and Gridbox classes and are nearly finished with them.
+-A challenge that we faced this week was conceptualizing the gameplay and figuring out how all of the classes will work together. 
+
+Week 5:
+
+-Last week, we made the BoardPair, Gameboard, and Gridbox classes.
+-This week, we finished the Gameboard, BoardPair, DiceRoller, and Server class. We also began to work on the multi-threading that is required for our game to work. 
+<<<<<<< HEAD
+-The challenge we encountered this week was trying to understand how multi-threading works, as we both do not have any real experience implementing it in the past.
+=======
+-The challenge we encountered this week was trying to understand how multi-threading works, as we both do not have any real experience implementing it in the past.
+>>>>>>> branch 'master' of https://github.com/kaczynskis/SnakesAndLaddersFinalProj.git
