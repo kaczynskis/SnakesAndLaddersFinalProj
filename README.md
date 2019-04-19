@@ -24,16 +24,19 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 
 ## **Getting Started**
 * Install
-  * 1. 
-  * 2.
+  * Download the project from GitHub into your computer.
 * Run
-  * 1.
-  * 2.
+  * 1. Open Terminal
+  * 2. Enter "python ./server.py"
+  * 3. In a new terminal window, enter "python ./client.py"
+  * 4. Repeat for up to 2 users. 
   
 ## **Features**
-* 1. 
-* 2.
-* 3.
+* 1. User can join or quit game
+* 2. User can input their name
+* 3. User can roll dice
+* 4. User can view board
+* 5. User can see who won or lost the game
 
 ## **Demo Video**
 *
