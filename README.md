@@ -22,6 +22,22 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 * Week 5: program and add dice simulation and basic game functionality
 * Week 6: polish whole project, prepare for presentation
 
+## **Getting Started**
+* Install
+  * 1. 
+  * 2.
+* Run
+  * 1.
+  * 2.
+  
+## **Features**
+* 1. 
+* 2.
+* 3.
+
+## **Demo Video**
+*
+
 ## **Team Members**
 * Katarina Petrovic, frontend
 * Sarah Kaczynski, backend
