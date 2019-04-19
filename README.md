@@ -24,9 +24,10 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 
 ## **Getting Started**
 * Install
-  * Download the project from GitHub into your computer.
+  * Download the project from GitHub into your computer
 * Run
   * 1. Open Terminal
+  * 2. Enter "cd " and then the location of your download
   * 2. Enter "python ./server.py"
   * 3. In a new terminal window, enter "python ./client.py"
   * 4. Repeat for up to 2 users. 
@@ -44,6 +45,3 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 ## **Team Members**
 * Katarina Petrovic, frontend
 * Sarah Kaczynski, backend
-
-
-...just making sure I can edit this!
