@@ -27,3 +27,5 @@
 * -Last week, we finished the majority of our classes and started multi-threading.
 * -This week, we converted our Java code to Python and removed some classes. 
 * -We encountered our greatest challenge of the entire project this week. We realized we wouldn't be able to have a fully deliverable program by the deadline using Java so, we decided to go ahead and recreate our game entirely in Python. It worked very well and we were able to get the code running decently by the time of the demo in our presentation. Our biggest regret is not switching to Python much earlier in the project. 
+
+https://youtu.be/fkjtaPPXbss
