@@ -63,16 +63,20 @@ def threaded(c):
        c.send(toSend.encode())
   
     #connection closed 
-   c.close() 
-# def clientThread(client):
-#     while true
-#     data=client.recv(1024)
-#     reply="Data received: "+data.decode()
-#     if not data"
-#        break;
-#     print(reply)
-#     client.sendall(data)
-#     client.close()  
+   c.close()   
+
+def game_server():
+    clients = {}
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    server_socket.bind(('', 1234))
+    while True:
+        message, address = server_socket.recvfrom(1024)
+        print("update from {}".format(address))
+        clients[address] = json.loads(message.decode("utf8"))
+        for client in clients.keys():
+            if client != address:
+                server_socket.sendto(message, client)
+        print("clients: {}".format(clients))
   
 def Main(): 
     host = "" 
