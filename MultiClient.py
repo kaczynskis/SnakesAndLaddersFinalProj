@@ -25,9 +25,9 @@ def Main():
         # message received from server 
         data = s.recv(1024) 
         if data == "You won!":
-           break  
-        # print the received message 
-        # here it would be a reverse of sent message 
+           s.close()
+           sys.exit()  
+        # print the received message  
         print('Received from the server :',str(data.decode('ascii'))) 
   
         # ask the client to continue

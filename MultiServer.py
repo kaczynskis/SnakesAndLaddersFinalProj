@@ -1,6 +1,7 @@
 
 # import socket programming library 
 import socket
+import json
 from _thread import * 
   
 # import thread module 
@@ -53,30 +54,30 @@ def threaded(c):
          p1Location = 100
        elif(p1Location == 71):
          p1Location = 91
+       elif(p1Location == 16):
+         p1Location = 6
+       elif(p1Location == 49):
+         p1Location = 11
+       elif(p1Location == 62):
+         p1Location = 19
+       elif(p1Location == 87):
+         p1Location = 24
+       elif(p1Location == 48):
+         p1Location = 26
+       elif(p1Location == 98):
+         p1Location = 78
       
        afterString = "after: " + str(p1Location)
-       toSend = beforeString + "   " + afterString 
        if(p1Location >= 100):
          toSend = "You won!"
-         break;  
+         c.send(toSend.encode())
+         exit()
+       toSend = beforeString + "   " + afterString   
        #send updated location to client 
        c.send(toSend.encode())
   
     #connection closed 
    c.close()   
-
-def game_server():
-    clients = {}
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    server_socket.bind(('', 1234))
-    while True:
-        message, address = server_socket.recvfrom(1024)
-        print("update from {}".format(address))
-        clients[address] = json.loads(message.decode("utf8"))
-        for client in clients.keys():
-            if client != address:
-                server_socket.sendto(message, client)
-        print("clients: {}".format(clients))
   
 def Main(): 
     host = "" 
@@ -96,13 +97,13 @@ def Main():
   
         # establish connection with client 
         c, addr = s.accept() 
-  
+
         # lock acquired by client 
         print_lock.acquire() 
         print('Connected to :', addr[0], ':', addr[1]) 
   
         # Start a new thread and return its identifier 
-        start_new_thread(threaded, (c,)) 
+        clients[c] = start_new_thread(threaded, (c,)) 
     s.close() 
   
   
