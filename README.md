@@ -40,7 +40,7 @@ Our GUI will be a simple grid layout with a shape or image for each player movin
 * 5. User can see who won or lost the game
 
 ## **Demo Video**
-* https://github.com/kaczynskis/SnakesAndLaddersFinalProj
+* https://www.youtube.com/watch?v=fkjtaPPXbss&feature=youtu.be
 
 ## **Team Members**
 * Katarina Petrovic, frontend
